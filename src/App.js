@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import FavoriteMovie from './FavoriteMovie';
+import logo from './logo.svg';
+//import UserFavoritMovie from './UserFavoritMovie';
 
 /*
-Display a list of movies where each movie contains a list of users that favorited it.
+Use React and the data below to display a list of users alongside their favorite movies.
 
 For detailed instructions, refer to instructions.md.
 */
-
+// eslint-disable-next-line 
 const profiles = [
   {
     id: 1,
@@ -41,11 +41,11 @@ const profiles = [
     favoriteMovieID: '4',
   },
 ];
-
+// eslint-disable-next-line 
 const users = {
   1: {
     id: 1,
-    name: 'Jane Jones',
+    name: 'Jane Cruz',
     userName: 'coder',
   },
   2: {
@@ -59,7 +59,7 @@ const users = {
     userName: 'user123',
   },
   4: {
-    id: 3,
+    id: 4,
     name: 'John Doe',
     userName: 'user123',
   },
@@ -74,11 +74,11 @@ const users = {
     userName: 'user123',
   },
 };
-
+// eslint-disable-next-line 
 const movies = {
   1: {
     id: 1,
-    name: 'Planet Earth',
+    name: 'Planet Earth 1',
   },
   2: {
     id: 2,
@@ -98,37 +98,59 @@ const movies = {
   },
 };
 
-let favoriteMovies = [];
-  console.log('--------movies');
-  console.log(Object.values(movies));
-
-for ( let prop in movies){
-  const profilesFavMovie = profiles.filter(profile => parseInt(profile.favoriteMovieID, 10) === movies[prop].id);
-  const usersFavMovie = profilesFavMovie.map(profile =>
-                            {
-                              let userInfo = {};
-                              userInfo.id = users[profile.userID].id ;
-                              userInfo.name = users[profile.userID].name;
-                              return userInfo;
-                            });
-  favoriteMovies.push(<FavoriteMovie key={movies[prop].id} movieName={movies[prop].name} users={usersFavMovie}/>);
-}
-
 class App extends Component {
   render() {
+
+ //  let moviesArr = [];
+ //  for( let prop in movies){
+ //  		moviesArr.push(movies[prop]);
+  // }
+ //  let usersArr = [];
+  // for( let prop in users){
+ //	   usersArr.push(users[prop]);
+  // }
+    
+  // let result = usersArr.map((user) => 
+  //                         { 
+   //                          const userProfile = profiles.find( profile => parseInt(profile.userID, 10) === user.id);
+      //                       const movieInfo = moviesArr.find( movie => movie.id === parseInt(userProfile.favoriteMovieID, 10));
+
+    //                         return {userID: user.id, msg: `${user.name} favorite movie is ${movieInfo.name}`};
+   //                        });
+    
+//    const usersMovieInfo = [];
+//    for(let prop in users){
+//      const userProfile = profiles.find(profile => parseInt(profile.userID, 10) === users[prop].id);
+//      let userFavMovie;
+///      for(let prop in movies){
+ ///       if( movies[prop].id === parseInt(userProfile.favoriteMovieID, 10) ) userFavMovie = movies[prop].name;
+ ///     }
+ ////     usersMovieInfo.push({userID: users[prop].id, msg:`${users[prop].name} favorite movie is ${userFavMovie}`});
+ //   }
+
+    
     return (
-      <div className="App">
+      <div>
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">ReactND - Coding Practice</h1>
         </header>
-        <h2>How Popular is Your Favorite Movie?</h2>
-        <div>
-			{favoriteMovies}
-        </div>
+		<ul>
+          <h2>Favorite Movies</h2>
+          {profiles.map( profile => {
+          const userName = users[profile.userID].name ; 
+          const movieName = movies[profile.favoriteMovieID].name;
+          return (
+            <li key={profile.id}>{ `${userName}'s favorite movie is "${movieName}" `}</li>
+          )
+          })}
+ 		</ul>
 
       </div>
     );
+
+         //		{result.map(userInfo => <UserFavoritMovie key={userInfo.userID} info={userInfo.msg}/>)}
+
   }
 }
 
