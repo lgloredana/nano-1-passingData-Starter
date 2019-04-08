@@ -101,32 +101,7 @@ const movies = {
 class App extends Component {
   render() {
 
- //  let moviesArr = [];
- //  for( let prop in movies){
- //  		moviesArr.push(movies[prop]);
-  // }
- //  let usersArr = [];
-  // for( let prop in users){
- //	   usersArr.push(users[prop]);
-  // }
-    
-  // let result = usersArr.map((user) => 
-  //                         { 
-   //                          const userProfile = profiles.find( profile => parseInt(profile.userID, 10) === user.id);
-      //                       const movieInfo = moviesArr.find( movie => movie.id === parseInt(userProfile.favoriteMovieID, 10));
 
-    //                         return {userID: user.id, msg: `${user.name} favorite movie is ${movieInfo.name}`};
-   //                        });
-    
-//    const usersMovieInfo = [];
-//    for(let prop in users){
-//      const userProfile = profiles.find(profile => parseInt(profile.userID, 10) === users[prop].id);
-//      let userFavMovie;
-///      for(let prop in movies){
- ///       if( movies[prop].id === parseInt(userProfile.favoriteMovieID, 10) ) userFavMovie = movies[prop].name;
- ///     }
- ////     usersMovieInfo.push({userID: users[prop].id, msg:`${users[prop].name} favorite movie is ${userFavMovie}`});
- //   }
 
     
     return (
@@ -137,19 +112,11 @@ class App extends Component {
         </header>
 		<ul>
           <h2>Favorite Movies</h2>
-          {profiles.map( profile => {
-          const userName = users[profile.userID].name ; 
-          const movieName = movies[profile.favoriteMovieID].name;
-          return (
-            <li key={profile.id}>{ `${userName}'s favorite movie is "${movieName}" `}</li>
-          )
-          })}
+          Solution goes here
  		</ul>
 
       </div>
     );
-
-         //		{result.map(userInfo => <UserFavoritMovie key={userInfo.userID} info={userInfo.msg}/>)}
 
   }
 }
